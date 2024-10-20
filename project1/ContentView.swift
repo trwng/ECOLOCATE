@@ -17,7 +17,7 @@ struct RoundedCorner: Shape {
 }
 
 struct ContentView: View {
-    @State private var selectedTab = 0 // Index of the selected tab
+    @State private var selectedTab = 0 
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -25,7 +25,7 @@ struct ContentView: View {
                 ScrollView {
                     VStack {
                         Button(action: {
-                            // Set selectedTab to 1 to switch to the Map tab
+                            
                             selectedTab = 1
                         }) {
                             VStack(spacing: 0) {
@@ -42,19 +42,19 @@ struct ContentView: View {
                                         .frame(width: 370, height: 120)
                                         .cornerRadius(15, corners: [.bottomLeft, .bottomRight])
 
-                                    Image("map") // Replace with your image name
+                                    Image("map") 
                                         .resizable()
                                         .scaledToFill()
                                         .frame(width: 370, height: 120)
                                         .cornerRadius(15, corners: [.bottomLeft, .bottomRight])
-                                        .clipped() // Ensures the image doesn't overflow the corners
+                                        .clipped() 
                                 }
                             }
                             .frame(width: 370, height: 185)
                         }
                         .shadow(color: .gray, radius: 4, x: 0, y: 2)
 
-                        // Other buttons and content remain unchanged
+                       
                         Button(action: {
                             print("Button tapped")
                         }) {
@@ -180,21 +180,21 @@ struct ContentView: View {
                 Image(systemName: "house")
                 Text("Home")
             }
-            .tag(0) // Tag for the home tab
+            .tag(0) 
 
-            MapTab() // Your MapTab view
+            MapTab() 
                 .tabItem {
                     Image(systemName: "mappin")
                     Text("Map")
                 }
-                .tag(1) // Tag for the map tab
+                .tag(1)
             
-            VolunteerView() // Add the VolunteerView as a new tab
+            VolunteerView()
                 .tabItem {
-                    Image(systemName: "person.3") // Change to an appropriate icon
+                    Image(systemName: "person.3") 
                     Text("Volunteers")
                 }
-                .tag(2) // Tag for the volunteers tab
+                .tag(2) 
         }
     }
 }
